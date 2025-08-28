@@ -90,23 +90,11 @@
     </div>
   </section>
 
-  <!-- SECCIÓN PLAYSTATION -->
+  <!-- SECCIÓN PLAYSTATION (SOLO JSON) -->
   <section id="playstation-section" class="category-section" style="display:none;">
     <h2>PlayStation</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="img/ps1.jpg" alt="PlayStation Juego 1">
-        <h4>God of War Ragnarok</h4>
-        <p>$60</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <div class="product-card">
-        <img src="img/ps2.jpg" alt="PlayStation Juego 2">
-        <h4>Spider-Man 2</h4>
-        <p>$55</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <!-- Más productos PlayStation aquí -->
+    <div id="playstation-products" class="products">
+      <!-- Aquí se cargarán los productos PlayStation desde el JSON -->
     </div>
   </section>
 
@@ -244,6 +232,11 @@
         mostrarSeccion(hash + '-section');
         document.getElementById('mobile-menu').classList.remove('active');
       });
+    });
+
+    // LOGO: lleva al inicio (puedes cambiar la sección de inicio aquí)
+    document.querySelector('.logo').addEventListener('click', function() {
+      mostrarSeccion('xbox-section'); // Cambia 'xbox-section' por la sección que prefieras como inicio
     });
 
     // MOSTRAR INICIO POR DEFECTO (puedes cambiar por la sección que quieras)
