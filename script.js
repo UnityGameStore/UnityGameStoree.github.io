@@ -92,19 +92,17 @@ if (btnPsTodos && btnPsOfertas && psTodosContainer && psOfertasContainer) {
 // ====================
 // CARGA PLAYSTATION Y OFERTAS
 // ====================
-function renderProductoCard(prod, idx, container, tipo) {
+function renderProductoCard(prod, idx, container, tipo, soloPlataforma = false) {
   if (!prod.nombre) return;
   const tienePS4 = prod.ps4 !== "" && prod.ps4 !== undefined;
   const tienePS5 = prod.ps5 !== "" && prod.ps5 !== undefined;
-  const tieneSecundario = prod.secundario !== "" && prod.secundario !== undefined;
-  if (!tienePS4 && !tienePS5 && !tieneSecundario) return;
+  if (!tienePS4 && !tienePS5) return;
   const prodId = `${tipo}-prod-${idx}`;
   let plataformaOptions = '';
   if (tienePS4) plataformaOptions += `<option value="ps4">PS4</option>`;
   if (tienePS5) plataformaOptions += `<option value="ps5">PS5</option>`;
-  let tipoOptions = '<option value="principal">Principal</option>';
-  if (tieneSecundario) tipoOptions += `<option value="secundario">Secundario</option>`;
-  let precioInicial = tienePS4 ? prod.ps4 : (tienePS5 ? prod.ps5 : prod.secundario);
+  let precioInicial = tienePS4 ? prod.ps4 : prod.ps5;
+
   container.innerHTML += `
     <div class="product-card">
       <h4>${prod.nombre}</h4>
@@ -114,12 +112,6 @@ function renderProductoCard(prod, idx, container, tipo) {
           ${plataformaOptions}
         </select>
       </label>
-      <label>
-        Tipo:
-        <select class="select-tipo" data-prod="${prodId}">
-          ${tipoOptions}
-        </select>
-      </label>
       <p class="price" id="price-${prodId}">$${precioInicial}</p>
       <button class="btn-carrito-${tipo}" data-idx="${idx}">Añadir al carrito</button>
     </div>
@@ -127,41 +119,25 @@ function renderProductoCard(prod, idx, container, tipo) {
 
   setTimeout(() => {
     const selectPlataforma = document.querySelector(`.select-plataforma[data-prod="${prodId}"]`);
-    const selectTipo = document.querySelector(`.select-tipo[data-prod="${prodId}"]`);
     const priceTag = document.getElementById(`price-${prodId}`);
-    if (!selectTipo || !priceTag) return;
+    if (!selectPlataforma || !priceTag) return;
     function actualizarPrecio() {
-      const plat = selectPlataforma ? selectPlataforma.value : '';
-      const tipoSel = selectTipo.value;
-      let precio = '';
-      if (tipoSel === 'secundario' && prod.secundario) precio = prod.secundario;
-      else if (plat === 'ps4' && prod.ps4) precio = prod.ps4;
-      else if (plat === 'ps5' && prod.ps5) precio = prod.ps5;
-      else if (prod.ps4) precio = prod.ps4;
-      else if (prod.ps5) precio = prod.ps5;
-      else if (prod.secundario) precio = prod.secundario;
+      const plat = selectPlataforma.value;
+      let precio = plat === 'ps4' ? prod.ps4 : prod.ps5;
       priceTag.textContent = precio ? `$${precio}` : 'Sin stock';
     }
-    if (selectPlataforma) selectPlataforma.addEventListener('change', actualizarPrecio);
-    selectTipo.addEventListener('change', actualizarPrecio);
+    selectPlataforma.addEventListener('change', actualizarPrecio);
 
     const btnCarrito = document.querySelector(`.btn-carrito-${tipo}[data-idx="${idx}"]`);
     if (btnCarrito) {
       btnCarrito.addEventListener('click', () => {
-        const plat = selectPlataforma ? selectPlataforma.value : '';
-        const tipoSel = selectTipo.value;
-        let precio = '';
-        if (tipoSel === 'secundario' && prod.secundario) precio = prod.secundario;
-        else if (plat === 'ps4' && prod.ps4) precio = prod.ps4;
-        else if (plat === 'ps5' && prod.ps5) precio = prod.ps5;
-        else if (prod.ps4) precio = prod.ps4;
-        else if (prod.ps5) precio = prod.ps5;
-        else if (prod.secundario) precio = prod.secundario;
+        const plat = selectPlataforma.value;
+        let precio = plat === 'ps4' ? prod.ps4 : prod.ps5;
         if (!precio) {
           alert('Sin stock para esta combinación.');
           return;
         }
-        carrito.push({ producto: `${prod.nombre} (${plat.toUpperCase()} - ${tipoSel})`, precio: `$${precio}` });
+        carrito.push({ producto: `${prod.nombre} (${plat.toUpperCase()})`, precio: `$${precio}` });
         actualizarCarrito();
       });
     }
@@ -173,15 +149,28 @@ function cargarPlayStation() {
     .then(res => res.json())
     .then(productos => {
       psTodosContainer.innerHTML = '';
-      productos.forEach((prod, idx) => renderProductoCard(prod, idx, psTodosContainer, 'ps'));
+      productos.forEach((prod, idx) => renderProductoCard(prod, idx, psTodosContainer, 'ps', false));
     });
 }
 function cargarOfertas() {
   fetch('ofertas.json')
     .then(res => res.json())
     .then(productos => {
-      psOfertasContainer.innerHTML = '';
-      productos.forEach((prod, idx) => renderProductoCard(prod, idx, psOfertasContainer, 'oferta'));
+      // Unificar productos por nombre (uno por nombre aunque tenga ps4 y ps5)
+      const map = {};
+      productos.forEach(prod => {
+        if (!map[prod.nombre]) map[prod.nombre] = {};
+        if (prod.ps4) map[prod.nombre].ps4 = prod.ps4;
+        if (prod.ps5) map[prod.nombre].ps5 = prod.ps5;
+      });
+      const unicos = Object.entries(map).map(([nombre, precios]) => ({
+        nombre,
+        ps4: precios.ps4 || "",
+        ps5: precios.ps5 || ""
+      }));
+      // Mantener la nube de texto
+      psOfertasContainer.innerHTML = document.querySelector('.cloud-offers')?.outerHTML || '';
+      unicos.forEach((prod, idx) => renderProductoCard(prod, idx, psOfertasContainer, 'oferta', true));
     });
 }
 if (psTodosContainer) cargarPlayStation();
