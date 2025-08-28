@@ -331,6 +331,102 @@ footer {
 .cart-popup button:hover { background: #003366; color: #FFD700; }
 
 /* ==============================
+   MENÚ HAMBURGUESA
+================================= */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 38px;
+  background: #003366;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-left: 10px;
+  z-index: 1100;
+}
+
+.hamburger-btn span {
+  display: block;
+  width: 26px;
+  height: 4px;
+  background: #FFD700;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+/* Menú mobile */
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 70px;
+  left: 0;
+  width: 100vw;
+  background: #002244;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+  z-index: 1200;
+  padding: 30px 0 10px 0;
+  animation: slideDown 0.3s;
+}
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-20px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+.mobile-menu ul {
+  list-style: none;
+  padding: 0 20px;
+}
+.mobile-menu li {
+  margin-bottom: 18px;
+}
+.mobile-menu a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  background: #003366;
+  padding: 12px 0;
+  border-radius: 30px;
+  text-align: center;
+  font-family: 'Audiowide', sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  transition: background 0.3s;
+}
+.mobile-menu a:hover {
+  background: #FFD700;
+  color: #003366;
+}
+
+/* Colores de categorías igual que sidebar */
+.mobile-menu a[href*="xbox"] { color: #107C10; border: 2px solid #107C10;}
+.mobile-menu a[href*="playstation"] { color: #003087; border: 2px solid #003087;}
+.mobile-menu a[href*="nintendo"] { color: #E60012; border: 2px solid #E60012;}
+.mobile-menu a[href*="combos"] { color: #FF4500; border: 2px solid #FF4500;}
+.mobile-menu a[href*="gift"] { color: #FFD700; border: 2px solid #FFD700;}
+.mobile-menu a[href*="ofertas"] { color: #9400D3; border: 2px solid #9400D3;}
+.mobile-menu a[href*="contacto"] { color: #FF8C00; border: 2px solid #FF8C00;}
+
+@media (max-width: 768px) {
+  .hamburger-btn {
+    display: flex !important;
+  }
+  .sidebar {
+    display: none !important;
+  }
+  .mobile-menu {
+    display: none;
+  }
+  .mobile-menu.active {
+    display: block !important;
+  }
+}
+
+
+
+/* ==============================
    RESPONSIVE
 ================================= */
 @media (max-width: 768px) {
@@ -387,3 +483,4 @@ footer {
     padding: 8px !important;
   }
 }
+
