@@ -50,6 +50,45 @@ if (hamburgerBtn && mobileMenu) {
   });
 }
 
+// ====================
+// LOGO VA AL INICIO
+// ====================
+document.querySelector('.logo').addEventListener('click', function() {
+  mostrarSeccion('inicio-section'); // Cambia 'inicio-section' por el id de tu sección principal
+});
+
+// ====================
+// PRODUCTOS PLAYSTATION DESDE JSON SOLO SE MUESTRAN EN PLAYSTATION
+// ====================
+function cargarPlayStation() {
+  fetch('csvjson.json')
+    .then(res => res.json())
+    .then(productos => {
+      // Eliminar duplicados por nombre (quédate solo con la primera aparición)
+      const juegoMap = {};
+      productos.forEach(prod => {
+        if (prod.nombre && !juegoMap[prod.nombre]) {
+          juegoMap[prod.nombre] = prod;
+        }
+      });
+      const unicos = Object.values(juegoMap);
+      renderPlaystationProductos(unicos);
+    });
+}
+
+function renderPlaystationProductos(productos) {
+  const container = document.getElementById('playstation-products');
+  container.innerHTML = '';
+  productos.forEach((prod, idx) => {
+    // ... tu código de renderizado aquí ...
+  });
+}
+
+// Ejecutar al cargar la página
+if (document.getElementById('playstation-products')) {
+  cargarPlayStation();
+}
+
 
 // ====================
 // BOTÓN DE COMPRA
@@ -242,5 +281,6 @@ function renderPlaystationProductos(productos) {
 if (document.getElementById('playstation-products')) {
   cargarPlayStation();
 }
+
 
 
