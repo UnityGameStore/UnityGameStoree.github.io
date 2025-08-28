@@ -17,7 +17,7 @@
       </a>
     </div>
     <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Buscar juegos, gift cards, combos...">
+      <input type="text" id="search-input" placeholder="Buscar juegos, membresías, combos...">
       <button id="search-btn">🔍</button>
     </div>
     <div class="header-right">
@@ -42,20 +42,20 @@
       <li><a href="#playstation">PlayStation</a></li>
       <li><a href="#nintendo">Nintendo Switch</a></li>
       <li><a href="#combos">Combos Nintendo Switch</a></li>
-      <li><a href="#gift">Gift Cards</a></li>
+      <li><a href="#membresias">Membresías</a></li>
       <li><a href="#playstation-ofertas">Ofertas PlayStation</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </aside>
 
-  <!-- MENÚ HAMBURGUESA MOBILE (oculto por defecto) -->
+  <!-- MENÚ HAMBURGUESA MOBILE -->
   <nav id="mobile-menu" class="mobile-menu">
     <ul>
       <li><a href="#xbox">Xbox</a></li>
       <li><a href="#playstation">PlayStation</a></li>
       <li><a href="#nintendo">Nintendo Switch</a></li>
       <li><a href="#combos">Combos Nintendo Switch</a></li>
-      <li><a href="#gift">Gift Cards</a></li>
+      <li><a href="#membresias">Membresías</a></li>
       <li><a href="#playstation-ofertas">Ofertas PlayStation</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
@@ -100,10 +100,11 @@
         <button id="btn-ps-todos" class="ps-tab active">Todos los juegos</button>
         <button id="btn-ps-ofertas" class="ps-tab">Ofertas</button>
       </div>
-      <div id="playstation-products" class="products">
-        <!-- Aquí se cargarán los productos de csvjson.json -->
-      </div>
+      <div id="playstation-products" class="products"></div>
       <div id="ofertas-products" class="products" style="display:none;">
+        <div class="cloud-offers">
+          <span>⚡ Todas las ofertas son en <b>cuenta principal</b> y solo digital. ¡Aprovecha, precios bajos por tiempo limitado!</span>
+        </div>
         <!-- Aquí se cargarán los productos de ofertas.json -->
       </div>
     </section>
@@ -142,23 +143,35 @@
       </div>
     </section>
 
-    <!-- SECCIÓN GIFT CARDS -->
-    <section id="gift-section" class="category-section" style="display:none;">
-      <h2>Gift Cards</h2>
+    <!-- SECCIÓN MEMBRESÍAS -->
+    <section id="membresias-section" class="category-section" style="display:none;">
+      <h2>Membresías</h2>
       <div class="products">
         <div class="product-card">
-          <img src="img/gift1.jpg" alt="Gift Card 1">
-          <h4>Gift Card Xbox $10</h4>
-          <p>$10</p>
+          <img src="img/psplus.jpg" alt="PS Plus">
+          <h4>PlayStation Plus</h4>
+          <p>$24/mes</p>
           <button>Añadir al carrito</button>
         </div>
         <div class="product-card">
-          <img src="img/gift2.jpg" alt="Gift Card 2">
-          <h4>Gift Card PlayStation $20</h4>
-          <p>$20</p>
+          <img src="img/gamepass.jpg" alt="Game Pass Ultimate">
+          <h4>Game Pass Ultimate</h4>
+          <p>$15/mes</p>
           <button>Añadir al carrito</button>
         </div>
-        <!-- Más gift cards aquí -->
+        <div class="product-card">
+          <img src="img/nswitchonline.jpg" alt="Nintendo Switch Online">
+          <h4>Nintendo Switch Online</h4>
+          <p>$20/año</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <div class="product-card">
+          <img src="img/eaaccess.jpg" alt="EA Access">
+          <h4>EA Access</h4>
+          <p>$8/mes</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <!-- Más membresías aquí -->
       </div>
     </section>
 
