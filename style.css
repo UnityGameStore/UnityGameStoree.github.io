@@ -187,6 +187,32 @@ h1, h2, h3, h4, .sidebar a {
 }
 
 /* ==============================
+   TABS PLAYSTATION
+================================= */
+.ps-tabs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+.ps-tab {
+  background: #FFD700;
+  color: #003366;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 24px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Rajdhani', sans-serif;
+  transition: background 0.3s;
+}
+.ps-tab.active,
+.ps-tab:hover {
+  background: #003366;
+  color: #FFD700;
+}
+
+
+/* ==============================
    SLIDER
 ================================= */
 .slider {
@@ -502,3 +528,4 @@ footer {
     padding: 8px !important;
   }
 }
+
