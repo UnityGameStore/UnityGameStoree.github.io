@@ -1,0 +1,244 @@
+/* ==============================
+   ESTILOS GENERALES
+================================= */
+body {
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  background: #ffffff;
+  color: #003366;
+}
+
+/* ==============================
+   HEADER
+================================= */
+header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255,255,255,0.9);
+  padding: 10px 20px;
+  z-index: 1000;
+  border-bottom: 3px solid #FFD700;
+}
+
+.logo {
+  width: 70px;
+  background: #fff;
+  border-radius: 50%;
+  padding: 5px;
+}
+
+.cart-container {
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #FFD700;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #003366;
+  transition: 0.3s;
+}
+.cart-container:hover {
+  background: #003366;
+  color: #FFD700;
+}
+
+/* ==============================
+   SIDEBAR
+================================= */
+.sidebar {
+  width: 220px;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  bottom: 0;
+  background: #003366;
+  color: #fff;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.sidebar ul { list-style: none; padding: 0; }
+.sidebar li { margin-bottom: 10px; cursor: pointer; }
+
+.sidebar a {
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.category > .submenu {
+  display: none;
+  margin-left: 15px;
+}
+.category:hover > .submenu {
+  display: block;
+}
+
+/* Globos para categorías */
+.sidebar li a {
+  display: inline-block;
+  background: #FFD700;
+  color: #003366;
+  padding: 5px 10px;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+.sidebar li a:hover {
+  background: #fff;
+  color: #003366;
+}
+
+/* ==============================
+   SLIDER
+================================= */
+.slider {
+  margin-left: 220px;
+  margin-top: 80px;
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+.slide {
+  min-width: 100%;
+}
+.slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  font-size: 24px;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* ==============================
+   MAIN CONTENT
+================================= */
+main {
+  margin-left: 240px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+h2 {
+  color: #003366;
+  border-bottom: 2px solid #FFD700;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.product-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  width: 200px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
+}
+.product-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.product-card img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.price {
+  color: #FFD700;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.product-card button {
+  background: #FFD700;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #003366;
+  transition: 0.3s;
+}
+.product-card button:hover {
+  background: #003366;
+  color: #FFD700;
+}
+
+/* ==============================
+   CONTACTO
+================================= */
+.contact-grid {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.contact-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  flex: 1;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.contact-card a {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background: #FFD700;
+  color: #003366;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+.contact-card a:hover {
+  background: #003366;
+  color: #FFD700;
+}
+
+/* ==============================
+   FOOTER
+================================= */
+footer {
+  background: #003366;
+  color: #FFD700;
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px;
+}
