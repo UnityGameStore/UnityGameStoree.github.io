@@ -335,13 +335,55 @@ footer {
 ================================= */
 @media (max-width: 768px) {
   .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
+    display: none !important;
   }
-  .slider, main { margin-left: 0; width: 100%; }
-  .products { justify-content: center; }
+  .slider, main, #playstation-products {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+  #main-header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 10px;
+  }
+  .logo-section {
+    justify-content: center;
+    width: 100%;
+  }
+  .search-bar {
+    width: 100%;
+    max-width: none;
+    margin: 10px 0;
+  }
+  .header-right {
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 5px;
+  }
+  .slider {
+    height: 180px !important;
+  }
+  .slide img {
+    height: 180px !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .products {
+    flex-direction: column !important;
+    gap: 15px !important;
+    align-items: center !important;
+  }
+  .product-card {
+    width: 94vw !important;
+    min-width: 0 !important;
+  }
+  .cart-popup {
+    width: 98vw !important;
+    right: 1vw !important;
+    top: 75px !important;
+    border-radius: 10px !important;
+    padding: 8px !important;
+  }
 }
