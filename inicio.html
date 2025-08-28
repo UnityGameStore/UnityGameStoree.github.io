@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UnityGameStore - Inicio</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header id="main-header">
+    <div class="logo-section">
+      <img src="img/looogo.png" alt="Logo" class="logo">
+      <h1 class="store-name">UnityGameStore</h1>
+    </div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Buscar juegos, gift cards, combos...">
+      <button id="search-btn">🔍</button>
+    </div>
+    <div class="header-right">
+      <div class="cart-container" id="cart-btn">🛒 Carrito</div>
+      <div class="social-icons">
+        <a href="https://wa.me/message/OOINODZGRVXLI1?src=qr" target="_blank">💬</a>
+        <a href="https://instagram.com/unitygamestore_" target="_blank">📸</a>
+      </div>
+    </div>
+    <button id="hamburger-btn" class="hamburger-btn" aria-label="Abrir menú" type="button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- SLIDER INICIO -->
+  <section class="slider" id="slider-inicio">
+    <div class="slides">
+      <div class="slide"><img src="img/slider1.png" alt="Oferta 1"></div>
+      <div class="slide"><img src="img/slider2.png" alt="Oferta 2"></div>
+      <div class="slide"><img src="img/slider3.png" alt="Oferta 3"></div>
+    </div>
+    <button class="prev">❮</button>
+    <button class="next">❯</button>
+  </section>
+
+  <!-- FLYERS DE OFERTAS -->
+  <section class="flyers-ofertas">
+    <h2>Ofertas Destacadas</h2>
+    <div class="flyers-grid">
+      <div class="flyer-card">
+        <img src="img/flyer-oferta1.jpg" alt="Flyer Oferta 1">
+        <div class="flyer-info">
+          <h3>Descuento especial en FIFA 25</h3>
+          <p>¡Aprovecha el precio rebajado por tiempo limitado!</p>
+        </div>
+      </div>
+      <div class="flyer-card">
+        <img src="img/flyer-oferta2.jpg" alt="Flyer Oferta 2">
+        <div class="flyer-info">
+          <h3>Combo Mario + Zelda</h3>
+          <p>Obtén ambos juegos con descuento exclusivo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOVEDADES -->
+  <section class="novedades">
+    <h2>Novedades</h2>
+    <div class="novedades-grid">
+      <div class="novedad-card">
+        <img src="img/novedad1.jpg" alt="Novedad 1">
+        <div class="novedad-info">
+          <h3>Nuevo lanzamiento: Spider-Man 2</h3>
+          <p>¡Ya disponible para PS5!</p>
+        </div>
+      </div>
+      <div class="novedad-card">
+        <img src="img/novedad2.jpg" alt="Novedad 2">
+        <div class="novedad-info">
+          <h3>Gift Cards digitales</h3>
+          <p>Ahora puedes comprar tus gift cards directamente en la tienda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>UnityGameStore © 2025 - Todos los derechos reservados</p>
+  </footer>
+
+  <!-- POPUP DEL CARRITO -->
+  <div class="cart-popup" id="cart-popup" style="display:none;">
+    <h3>Tu Carrito</h3>
+    <ul id="cart-items"></ul>
+    <button id="checkout">Finalizar Compra</button>
+  </div>
+
+  <script src="script.js"></script>
+  <!-- Puedes agregar el JS específico para el slider/flyers aquí si lo necesitas -->
+</body>
+</html>
