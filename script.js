@@ -51,102 +51,8 @@ if (hamburgerBtn && mobileMenu) {
 }
 
 // ====================
-// LOGO VA AL INICIO
-// ====================
-document.querySelector('.logo').addEventListener('click', function() {
-  mostrarSeccion('inicio-section'); // Cambia 'inicio-section' por el id de tu sección principal
-});
-
-// ====================
 // PRODUCTOS PLAYSTATION DESDE JSON SOLO SE MUESTRAN EN PLAYSTATION
 // ====================
-function cargarPlayStation() {
-  fetch('csvjson.json')
-    .then(res => res.json())
-    .then(productos => {
-      // Eliminar duplicados por nombre (quédate solo con la primera aparición)
-      const juegoMap = {};
-      productos.forEach(prod => {
-        if (prod.nombre && !juegoMap[prod.nombre]) {
-          juegoMap[prod.nombre] = prod;
-        }
-      });
-      const unicos = Object.values(juegoMap);
-      renderPlaystationProductos(unicos);
-    });
-}
-
-function renderPlaystationProductos(productos) {
-  const container = document.getElementById('playstation-products');
-  container.innerHTML = '';
-  productos.forEach((prod, idx) => {
-    // ... tu código de renderizado aquí ...
-  });
-}
-
-// Ejecutar al cargar la página
-if (document.getElementById('playstation-products')) {
-  cargarPlayStation();
-}
-
-
-// ====================
-// BOTÓN DE COMPRA
-// ====================
-const checkoutBtn = document.getElementById("checkout");
-checkoutBtn.addEventListener("click", () => {
-  if (carrito.length === 0) {
-    alert("Tu carrito está vacío");
-    return;
-  }
-  let mensaje = "Hola! Quiero comprar:\n\n";
-  carrito.forEach(item => {
-    mensaje += `- ${item.producto} (${item.precio})\n`;
-  });
-  // Reemplaza tu número real de WhatsApp
-  const url = `https://wa.me/123456789?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, "_blank");
-});
-
-// ====================
-// SLIDER
-// ====================
-const slides = document.querySelector(".slides");
-const slideImages = document.querySelectorAll(".slide");
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-
-let index = 0;
-function showSlide(i) {
-  index += i;
-  if (index < 0) index = slideImages.length - 1;
-  if (index >= slideImages.length) index = 0;
-  slides.style.transform = `translateX(${-index * 100}%)`;
-}
-prevBtn.addEventListener("click", () => showSlide(-1));
-nextBtn.addEventListener("click", () => showSlide(1));
-setInterval(() => { showSlide(1); }, 5000);
-
-// ====================
-// BARRA DE BÚSQUEDA GLOBAL (TODOS LOS PRODUCTOS DE LA PÁGINA)
-// ====================
-const searchInput = document.getElementById("search-input");
-const searchBtn = document.getElementById("search-btn");
-
-function filtrarProductos() {
-  const query = searchInput.value.trim().toLowerCase();
-  // Selecciona todos los productos visibles en la página
-  document.querySelectorAll(".product-card").forEach(card => {
-    const nombre = card.querySelector("h4")?.innerText.toLowerCase() || "";
-    card.style.display = nombre.includes(query) ? "" : "none";
-  });
-}
-searchInput.addEventListener("input", filtrarProductos);
-searchBtn.addEventListener("click", filtrarProductos);
-
-// ==========================
-// CARGAR PRODUCTOS PLAYSTATION DESDE JSON (SOLO 1 POR NOMBRE)
-// ==========================
 function cargarPlayStation() {
   fetch('csvjson.json')
     .then(res => res.json())
@@ -282,5 +188,56 @@ if (document.getElementById('playstation-products')) {
   cargarPlayStation();
 }
 
+// ====================
+// BOTÓN DE COMPRA
+// ====================
+const checkoutBtn = document.getElementById("checkout");
+checkoutBtn.addEventListener("click", () => {
+  if (carrito.length === 0) {
+    alert("Tu carrito está vacío");
+    return;
+  }
+  let mensaje = "Hola! Quiero comprar:\n\n";
+  carrito.forEach(item => {
+    mensaje += `- ${item.producto} (${item.precio})\n`;
+  });
+  // Reemplaza tu número real de WhatsApp
+  const url = `https://wa.me/123456789?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, "_blank");
+});
 
+// ====================
+// SLIDER
+// ====================
+const slides = document.querySelector(".slides");
+const slideImages = document.querySelectorAll(".slide");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
 
+let index = 0;
+function showSlide(i) {
+  index += i;
+  if (index < 0) index = slideImages.length - 1;
+  if (index >= slideImages.length) index = 0;
+  slides.style.transform = `translateX(${-index * 100}%)`;
+}
+prevBtn.addEventListener("click", () => showSlide(-1));
+nextBtn.addEventListener("click", () => showSlide(1));
+setInterval(() => { showSlide(1); }, 5000);
+
+// ====================
+// BARRA DE BÚSQUEDA GLOBAL (TODOS LOS PRODUCTOS DE LA PÁGINA)
+// ====================
+const searchInput = document.getElementById("search-input");
+const searchBtn = document.getElementById("search-btn");
+
+function filtrarProductos() {
+  const query = searchInput.value.trim().toLowerCase();
+  // Selecciona todos los productos visibles en la página
+  document.querySelectorAll(".product-card").forEach(card => {
+    const nombre = card.querySelector("h4")?.innerText.toLowerCase() || "";
+    card.style.display = nombre.includes(query) ? "" : "none";
+  });
+}
+searchInput.addEventListener("input", filtrarProductos);
+searchBtn.addEventListener("click", filtrarProductos);
