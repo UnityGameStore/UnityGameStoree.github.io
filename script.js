@@ -53,7 +53,7 @@ checkoutBtn.addEventListener("click", () => {
   });
 
   // Reemplaza tu número de WhatsApp
-  const url = `https://wa.me/123456789?text=${encodeURIComponent(mensaje)}`;
+  const url = `https://wa.me/message/OOINODZGRVXLI1?src=qr" target="_blank`;
   window.open(url, "_blank");
 });
 
@@ -107,7 +107,7 @@ searchBtn.addEventListener("click", filtrarProductos);
 // CARGAR PRODUCTOS PLAYSTATION DESDE CSV
 // ==========================
 function cargarPlayStation() {
-  fetch('data/playstation.csv')
+  fetch('playstation.csv')
     .then(res => res.text())
     .then(data => {
       // Parsear CSV a objetos
