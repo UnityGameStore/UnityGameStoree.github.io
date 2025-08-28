@@ -157,13 +157,13 @@ h1, h2, h3, h4, .sidebar a {
 }
 
 /* Colores categorías */
-.sidebar a[href*="xbox"] { color: #107C10; border: 2px solid #107C10; }
-.sidebar a[href*="playstation"] { color: #003087; border: 2px solid #003087; }
-.sidebar a[href*="nintendo"] { color: #E60012; border: 2px solid #E60012; }
-.sidebar a[href*="combos"] { color: #FF4500; border: 2px solid #FF4500; }
-.sidebar a[href*="gift"] { color: #FFD700; border: 2px solid #FFD700; }
-.sidebar a[href*="ofertas"] { color: #9400D3; border: 2px solid #9400D3; }
-.sidebar a[href*="contacto"] { color: #FF8C00; border: 2px solid #FF8C00; }
+.sidebar a[href*="xbox"] { color: #30d413; border: 2px solid #107C10; }
+.sidebar a[href*="playstation"] { color: #3d70cc; border: 2px solid #003087; }
+.sidebar a[href*="nintendo"] { color: #ff0400; border: 2px solid #E60012; }
+.sidebar a[href*="combos"] { color: #ff0400; border: 2px solid #FF4500; }
+.sidebar a[href*="gift"] { color: #eaff00; border: 2px solid #FFD700; }
+.sidebar a[href*="ofertas"] { color: #8800ff; border: 2px solid #9400D3; }
+.sidebar a[href*="contacto"] { color: #ebb402; border: 2px solid #FF8C00; }
 
 /* ==============================
    SLIDER
@@ -483,4 +483,5 @@ footer {
     padding: 8px !important;
   }
 }
+
 
