@@ -46,6 +46,12 @@ h1, h2, h3, h4, .sidebar a {
   align-items: center;
   gap: 10px;
 }
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
 .logo {
   width: 60px;
   border-radius: 50%;
@@ -135,6 +141,7 @@ h1, h2, h3, h4, .sidebar a {
   left: 0;
   overflow-y: auto;
   box-shadow: 3px 0 10px rgba(0,0,0,0.4);
+  z-index: 900;
 }
 .sidebar ul {
   list-style: none;
@@ -155,7 +162,6 @@ h1, h2, h3, h4, .sidebar a {
   background: white;
   transform: scale(1.05);
 }
-
 /* Colores categorías */
 .sidebar a[href*="xbox"] { color: #30D413; border: 2px solid #107C10; }
 .sidebar a[href*="playstation"] { color: #3D70CC; border: 2px solid #003087; }
@@ -166,17 +172,31 @@ h1, h2, h3, h4, .sidebar a {
 .sidebar a[href*="contacto"] { color: #EBB402; border: 2px solid #FF8C00; }
 
 /* ==============================
+   MAIN-CONTENT: Evitar superposición */
+.main-content {
+  margin-left: 270px;
+  margin-top: 90px;
+  padding: 0 20px;
+}
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0 !important;
+    margin-top: 75px !important;
+    padding: 0 5px;
+  }
+}
+
+/* ==============================
    SLIDER
 ================================= */
 .slider {
-  margin-left: 270px;
-  margin-top: 90px;
   position: relative;
   overflow: hidden;
-  width: calc(100% - 270px);
+  width: 100%;
   height: 400px;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-bottom: 30px;
 }
 .slides { display: flex; transition: transform 0.5s ease-in-out; }
 .slide { min-width: 100%; }
@@ -205,7 +225,6 @@ h1, h2, h3, h4, .sidebar a {
 /* ==============================
    PRODUCTOS
 ================================= */
-main { margin-left: 270px; padding: 20px; }
 .products {
   display: flex;
   gap: 20px;
@@ -247,7 +266,6 @@ main { margin-left: 270px; padding: 20px; }
   background: #003366;
   color: #FFD700;
 }
-
 /* ==============================
    CONTACTO
 ================================= */
@@ -399,7 +417,6 @@ footer {
   background: #FFD700;
   color: #003366;
 }
-
 /* Colores de categorías igual que sidebar */
 .mobile-menu a[href*="xbox"] { color: #107C10; border: 2px solid #107C10;}
 .mobile-menu a[href*="playstation"] { color: #003087; border: 2px solid #003087;}
@@ -422,9 +439,11 @@ footer {
   .mobile-menu.active {
     display: block !important;
   }
+  .main-content {
+    margin-left: 0 !important;
+    margin-top: 75px !important;
+  }
 }
-
-
 
 /* ==============================
    RESPONSIVE
@@ -433,7 +452,7 @@ footer {
   .sidebar {
     display: none !important;
   }
-  .slider, main, #playstation-products {
+  .slider, main, #playstation-products, .category-section {
     margin-left: 0 !important;
     width: 100% !important;
   }
@@ -483,6 +502,3 @@ footer {
     padding: 8px !important;
   }
 }
-
-
-
