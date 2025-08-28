@@ -22,7 +22,6 @@ document.querySelectorAll(".product-card button").forEach((btn, index) => {
   btn.addEventListener("click", () => {
     const producto = btn.parentElement.querySelector("h4").innerText;
     const precio = btn.parentElement.querySelector("p").innerText;
-
     carrito.push({ producto, precio });
     actualizarCarrito();
   });
@@ -52,8 +51,8 @@ checkoutBtn.addEventListener("click", () => {
     mensaje += `- ${item.producto} (${item.precio})\n`;
   });
 
-  // Reemplaza tu número de WhatsApp
-  const url = `https://wa.me/04122754616" target="_blank`;
+  // Reemplaza tu número de WhatsApp real aquí:
+  const url = `https://wa.me/123456789?text=${encodeURIComponent(mensaje)}`;
   window.open(url, "_blank");
 });
 
@@ -66,17 +65,14 @@ const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 
 let index = 0;
-
 function showSlide(i) {
   index += i;
   if (index < 0) index = slideImages.length - 1;
   if (index >= slideImages.length) index = 0;
   slides.style.transform = `translateX(${-index * 100}%)`;
 }
-
 prevBtn.addEventListener("click", () => showSlide(-1));
 nextBtn.addEventListener("click", () => showSlide(1));
-
 setInterval(() => {
   showSlide(1);
 }, 5000);
@@ -99,43 +95,16 @@ function filtrarProductos() {
     }
   });
 }
-
 searchInput.addEventListener("input", filtrarProductos);
 searchBtn.addEventListener("click", filtrarProductos);
 
 // ==========================
-// CARGAR PRODUCTOS PLAYSTATION DESDE CSV
+// CARGAR PRODUCTOS PLAYSTATION DESDE JSON
 // ==========================
 function cargarPlayStation() {
-  fetch('playstation.csv')
-    .then(res => res.text())
-    .then(data => {
-      // Parsear CSV a objetos
-      const lines = data.trim().split('\n');
-      const headers = lines[0].split(',');
-      const productos = lines.slice(1).map(line => {
-        // Manejar comillas en nombres con comas
-        let values = [];
-        let current = '';
-        let inQuotes = false;
-        for (let i = 0; i < line.length; i++) {
-          if (line[i] === '"' && (i === 0 || line[i-1] !== '\\')) {
-            inQuotes = !inQuotes;
-            continue;
-          }
-          if (line[i] === ',' && !inQuotes) {
-            values.push(current);
-            current = '';
-          } else {
-            current += line[i];
-          }
-        }
-        values.push(current);
-
-        let obj = {};
-        headers.forEach((h, i) => obj[h.trim() || (i===0?'nombre':'')] = (values[i]||'').trim());
-        return obj;
-      });
+  fetch('csvjson.json')
+    .then(res => res.json())
+    .then(productos => {
       renderPlaystationProductos(productos);
     });
 }
@@ -144,36 +113,28 @@ function renderPlaystationProductos(productos) {
   const container = document.getElementById('playstation-products');
   container.innerHTML = '';
   productos.forEach((prod, idx) => {
-    // Validación: solo juegos con nombre (evita líneas vacías)
     if (!prod.nombre) return;
 
-    // Opciones de plataforma y tipo
-    const tienePS4 = prod.ps4 && prod.ps4 !== '';
-    const tienePS5 = prod.ps5 && prod.ps5 !== '';
-    const tieneSecundario = prod.secundario && prod.secundario !== '';
+    // Validar disponibilidad
+    const tienePS4 = prod.ps4 !== "" && prod.ps4 !== undefined;
+    const tienePS5 = prod.ps5 !== "" && prod.ps5 !== undefined;
+    const tieneSecundario = prod.secundario !== "" && prod.secundario !== undefined;
 
-    // Si no hay ninguna versión disponible, no mostrar
     if (!tienePS4 && !tienePS5 && !tieneSecundario) return;
 
     const prodId = `ps-prod-${idx}`;
-    // Menú de plataforma dinámico
     let plataformaOptions = '';
     if (tienePS4) plataformaOptions += `<option value="ps4">PS4</option>`;
     if (tienePS5) plataformaOptions += `<option value="ps5">PS5</option>`;
 
-    // Menú de tipo dinámico
     let tipoOptions = '<option value="principal">Principal</option>';
     if (tieneSecundario) tipoOptions += `<option value="secundario">Secundario</option>`;
 
-    // Determinar precio inicial
-    let precioInicial = '';
-    if (tienePS4) {
-      precioInicial = prod.ps4;
-    } else if (tienePS5) {
-      precioInicial = prod.ps5;
-    } else if (tieneSecundario) {
-      precioInicial = prod.secundario;
-    }
+    // Precio inicial
+    let precioInicial = "";
+    if (tienePS4) precioInicial = prod.ps4;
+    else if (tienePS5) precioInicial = prod.ps5;
+    else if (tieneSecundario) precioInicial = prod.secundario;
 
     container.innerHTML += `
       <div class="product-card">
@@ -204,27 +165,28 @@ function renderPlaystationProductos(productos) {
     const selectTipo = document.querySelector(`.select-tipo[data-prod="${prodId}"]`);
     const priceTag = document.getElementById(`price-${prodId}`);
 
-    if (!selectPlataforma || !selectTipo || !priceTag) return;
+    if (!selectTipo || !priceTag) return;
 
     function actualizarPrecio() {
       const plat = selectPlataforma ? selectPlataforma.value : '';
       const tipo = selectTipo.value;
       let precio = '';
-      if (tipo === 'secundario' && prod.secundario) {
+      if (tipo === 'secundario' && prod.secundario !== "") {
         precio = prod.secundario;
-      } else if (plat === 'ps4' && prod.ps4) {
+      } else if (plat === 'ps4' && prod.ps4 !== "") {
         precio = prod.ps4;
-      } else if (plat === 'ps5' && prod.ps5) {
+      } else if (plat === 'ps5' && prod.ps5 !== "") {
         precio = prod.ps5;
-      } else if (prod.ps4) {
+      } else if (prod.ps4 !== "") {
         precio = prod.ps4;
-      } else if (prod.ps5) {
+      } else if (prod.ps5 !== "") {
         precio = prod.ps5;
-      } else if (prod.secundario) {
+      } else if (prod.secundario !== "") {
         precio = prod.secundario;
       }
       priceTag.textContent = precio ? `$${precio}` : 'Sin stock';
     }
+
     if (selectPlataforma) selectPlataforma.addEventListener('change', actualizarPrecio);
     selectTipo.addEventListener('change', actualizarPrecio);
 
@@ -235,17 +197,17 @@ function renderPlaystationProductos(productos) {
         const plat = selectPlataforma ? selectPlataforma.value : '';
         const tipo = selectTipo.value;
         let precio = '';
-        if (tipo === 'secundario' && prod.secundario) {
+        if (tipo === 'secundario' && prod.secundario !== "") {
           precio = prod.secundario;
-        } else if (plat === 'ps4' && prod.ps4) {
+        } else if (plat === 'ps4' && prod.ps4 !== "") {
           precio = prod.ps4;
-        } else if (plat === 'ps5' && prod.ps5) {
+        } else if (plat === 'ps5' && prod.ps5 !== "") {
           precio = prod.ps5;
-        } else if (prod.ps4) {
+        } else if (prod.ps4 !== "") {
           precio = prod.ps4;
-        } else if (prod.ps5) {
+        } else if (prod.ps5 !== "") {
           precio = prod.ps5;
-        } else if (prod.secundario) {
+        } else if (prod.secundario !== "") {
           precio = prod.secundario;
         }
         if (!precio) {
@@ -262,7 +224,7 @@ function renderPlaystationProductos(productos) {
   });
 }
 
-// Ejecutar al cargar la página (cuando existe el bloque)
+// Ejecutar al cargar la página
 if (document.getElementById('playstation-products')) {
   cargarPlayStation();
 }
