@@ -8,11 +8,13 @@
 </head>
 <body>
 
-    <!-- HEADER -->
+  <!-- HEADER -->
   <header id="main-header">
     <div class="logo-section">
-      <img src="img/looogo.png" alt="Logo" class="logo">
-      <h1 class="store-name">UnityGameStore</h1>
+      <a href="inicio.html" class="logo-link">
+        <img src="img/looogo.png" alt="Logo" class="logo">
+        <h1 class="store-name">UnityGameStore</h1>
+      </a>
     </div>
     <div class="search-bar">
       <input type="text" id="search-input" placeholder="Buscar juegos, gift cards, combos...">
@@ -59,137 +61,139 @@
     </ul>
   </nav>
 
-  <!-- SLIDER -->
-  <section class="slider">
-    <div class="slides">
-      <div class="slide"><img src="img/slider1.png" alt="Oferta 1"></div>
-      <div class="slide"><img src="img/slider2.png" alt="Oferta 2"></div>
-      <div class="slide"><img src="img/slider3.png" alt="Oferta 3"></div>
-    </div>
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </section>
+  <div class="main-content">
+    <!-- SLIDER -->
+    <section class="slider">
+      <div class="slides">
+        <div class="slide"><img src="img/slider1.png" alt="Oferta 1"></div>
+        <div class="slide"><img src="img/slider2.png" alt="Oferta 2"></div>
+        <div class="slide"><img src="img/slider3.png" alt="Oferta 3"></div>
+      </div>
+      <button class="prev">❮</button>
+      <button class="next">❯</button>
+    </section>
 
-  <!-- SECCIÓN XBOX -->
-  <section id="xbox-section" class="category-section" style="display:none;">
-    <h2>Xbox</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="img/xbox1.jpg" alt="Xbox Juego 1">
-        <h4>Halo Infinite</h4>
-        <p>$40</p>
-        <button>Añadir al carrito</button>
+    <!-- SECCIÓN XBOX -->
+    <section id="xbox-section" class="category-section" style="display:none;">
+      <h2>Xbox</h2>
+      <div class="products">
+        <div class="product-card">
+          <img src="img/xbox1.jpg" alt="Xbox Juego 1">
+          <h4>Halo Infinite</h4>
+          <p>$40</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <div class="product-card">
+          <img src="img/xbox2.jpg" alt="Xbox Juego 2">
+          <h4>Forza Horizon 5</h4>
+          <p>$50</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <!-- Más productos Xbox aquí -->
       </div>
-      <div class="product-card">
-        <img src="img/xbox2.jpg" alt="Xbox Juego 2">
-        <h4>Forza Horizon 5</h4>
-        <p>$50</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <!-- Más productos Xbox aquí -->
-    </div>
-  </section>
+    </section>
 
-  <!-- SECCIÓN PLAYSTATION (SOLO JSON) -->
-  <section id="playstation-section" class="category-section" style="display:none;">
-    <h2>PlayStation</h2>
-    <div id="playstation-products" class="products">
-      <!-- Aquí se cargarán los productos PlayStation desde el JSON -->
-    </div>
-  </section>
+    <!-- SECCIÓN PLAYSTATION (SOLO JSON) -->
+    <section id="playstation-section" class="category-section" style="display:none;">
+      <h2>PlayStation</h2>
+      <div id="playstation-products" class="products">
+        <!-- Aquí se cargarán los productos PlayStation desde el JSON -->
+      </div>
+    </section>
 
-  <!-- SECCIÓN NINTENDO SWITCH -->
-  <section id="nintendo-section" class="category-section" style="display:none;">
-    <h2>Nintendo Switch</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="img/nintendo1.jpg" alt="Nintendo Juego 1">
-        <h4>The Legend of Zelda: Breath of the Wild</h4>
-        <p>$45</p>
-        <button>Añadir al carrito</button>
+    <!-- SECCIÓN NINTENDO SWITCH -->
+    <section id="nintendo-section" class="category-section" style="display:none;">
+      <h2>Nintendo Switch</h2>
+      <div class="products">
+        <div class="product-card">
+          <img src="img/nintendo1.jpg" alt="Nintendo Juego 1">
+          <h4>The Legend of Zelda: Breath of the Wild</h4>
+          <p>$45</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <!-- Más productos Nintendo aquí -->
       </div>
-      <!-- Más productos Nintendo aquí -->
-    </div>
-  </section>
+    </section>
 
-  <!-- SECCIÓN COMBOS NINTENDO -->
-  <section id="combos-section" class="category-section" style="display:none;">
-    <h2>Combos Nintendo Switch</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="img/combo1.jpg" alt="Combo 1">
-        <h4>Combo Mario + Zelda</h4>
-        <p>$75</p>
-        <button>Añadir al carrito</button>
+    <!-- SECCIÓN COMBOS NINTENDO -->
+    <section id="combos-section" class="category-section" style="display:none;">
+      <h2>Combos Nintendo Switch</h2>
+      <div class="products">
+        <div class="product-card">
+          <img src="img/combo1.jpg" alt="Combo 1">
+          <h4>Combo Mario + Zelda</h4>
+          <p>$75</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <div class="product-card">
+          <img src="img/combo2.jpg" alt="Combo 2">
+          <h4>Combo Animal Crossing + Pokémon</h4>
+          <p>$70</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <!-- Más combos Nintendo aquí -->
       </div>
-      <div class="product-card">
-        <img src="img/combo2.jpg" alt="Combo 2">
-        <h4>Combo Animal Crossing + Pokémon</h4>
-        <p>$70</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <!-- Más combos Nintendo aquí -->
-    </div>
-  </section>
+    </section>
 
-  <!-- SECCIÓN GIFT CARDS -->
-  <section id="gift-section" class="category-section" style="display:none;">
-    <h2>Gift Cards</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="img/gift1.jpg" alt="Gift Card 1">
-        <h4>Gift Card Xbox $10</h4>
-        <p>$10</p>
-        <button>Añadir al carrito</button>
+    <!-- SECCIÓN GIFT CARDS -->
+    <section id="gift-section" class="category-section" style="display:none;">
+      <h2>Gift Cards</h2>
+      <div class="products">
+        <div class="product-card">
+          <img src="img/gift1.jpg" alt="Gift Card 1">
+          <h4>Gift Card Xbox $10</h4>
+          <p>$10</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <div class="product-card">
+          <img src="img/gift2.jpg" alt="Gift Card 2">
+          <h4>Gift Card PlayStation $20</h4>
+          <p>$20</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <!-- Más gift cards aquí -->
       </div>
-      <div class="product-card">
-        <img src="img/gift2.jpg" alt="Gift Card 2">
-        <h4>Gift Card PlayStation $20</h4>
-        <p>$20</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <!-- Más gift cards aquí -->
-    </div>
-  </section>
+    </section>
 
-  <!-- SECCIÓN OFERTAS -->
-  <section id="ofertas-section" class="category-section" style="display:none;">
-    <h2>Ofertas</h2>
-    <div class="products">
-      <div class="product-card">
-        <img src="img/oferta1.jpg" alt="Oferta 1">
-        <h4>Oferta Especial 1</h4>
-        <p>$20</p>
-        <button>Añadir al carrito</button>
+    <!-- SECCIÓN OFERTAS -->
+    <section id="ofertas-section" class="category-section" style="display:none;">
+      <h2>Ofertas</h2>
+      <div class="products">
+        <div class="product-card">
+          <img src="img/oferta1.jpg" alt="Oferta 1">
+          <h4>Oferta Especial 1</h4>
+          <p>$20</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <div class="product-card">
+          <img src="img/oferta2.jpg" alt="Oferta 2">
+          <h4>Oferta Especial 2</h4>
+          <p>$15</p>
+          <button>Añadir al carrito</button>
+        </div>
+        <!-- Más ofertas aquí -->
       </div>
-      <div class="product-card">
-        <img src="img/oferta2.jpg" alt="Oferta 2">
-        <h4>Oferta Especial 2</h4>
-        <p>$15</p>
-        <button>Añadir al carrito</button>
-      </div>
-      <!-- Más ofertas aquí -->
-    </div>
-  </section>
+    </section>
 
-  <!-- SECCIÓN CONTACTO -->
-  <section id="contacto-section" class="category-section" style="display:none;">
-    <h2>Contacto</h2>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>WhatsApp</h3>
-        <a href="https://wa.me/message/OOINODZGRVXLI1?src=qr" target="_blank">Escríbenos 💬</a>
+    <!-- SECCIÓN CONTACTO -->
+    <section id="contacto-section" class="category-section" style="display:none;">
+      <h2>Contacto</h2>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>WhatsApp</h3>
+          <a href="https://wa.me/message/OOINODZGRVXLI1?src=qr" target="_blank">Escríbenos 💬</a>
+        </div>
+        <div class="contact-card">
+          <h3>Instagram</h3>
+          <a href="https://instagram.com/unitygamestore_" target="_blank">Síguenos 📸</a>
+        </div>
+        <div class="contact-card">
+          <h3>Email</h3>
+          <a href="mailto:unitygamestore9@gmail.com">Envíanos un correo ✉️</a>
+        </div>
       </div>
-      <div class="contact-card">
-        <h3>Instagram</h3>
-        <a href="https://instagram.com/unitygamestore_" target="_blank">Síguenos 📸</a>
-      </div>
-      <div class="contact-card">
-        <h3>Email</h3>
-        <a href="mailto:unitygamestore9@gmail.com">Envíanos un correo ✉️</a>
-      </div>
-    </div>
-  </section>
+    </section>
+  </div>
 
   <!-- FOOTER -->
   <footer>
@@ -234,15 +238,8 @@
       });
     });
 
-    // LOGO: lleva al inicio (puedes cambiar la sección de inicio aquí)
-    document.querySelector('.logo').addEventListener('click', function() {
-      mostrarSeccion('xbox-section'); // Cambia 'xbox-section' por la sección que prefieras como inicio
-    });
-
     // MOSTRAR INICIO POR DEFECTO (puedes cambiar por la sección que quieras)
     mostrarSeccion('xbox-section');
   </script>
 </body>
 </html>
-
-
