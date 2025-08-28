@@ -3,112 +3,47 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UnityGameStore</title>
+  <title>Rototoy | Tienda de Videojuegos</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-  <!-- HEADER -->
   <header id="main-header">
-    <div class="logo-section">
-      <img src="img/looogo.png" alt="Logo" class="logo">
-      <h1 class="store-name">UnityGameStore</h1>
-    </div>
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Buscar juegos, gift cards, combos...">
-      <button id="search-btn">🔍</button>
-    </div>
-    <div class="header-right">
-      <div class="cart-container" id="cart-btn">🛒 Carrito</div>
-      <div class="social-icons">
-        <a href="https://wa.me/message/OOINODZGRVXLI1?src=qr" target="_blank">💬</a>
-        <a href="https://instagram.com/unitygamestore_" target="_blank">📸</a>
-      </div>
-    </div>
+    <div class="logo">Rototoy</div>
+    <button class="hamburger" id="hamburger">&#9776;</button>
+    <nav class="main-nav" id="main-nav">
+      <a href="#inicio">Inicio</a>
+      <a href="#playstation">PlayStation</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </header>
 
-  <!-- SIDEBAR -->
-  <aside class="sidebar">
-    <ul>
-      <li><a href="#xbox">Xbox</a></li>
-      <li><a href="#playstation">PlayStation</a></li>
-      <li><a href="#nintendo">Nintendo Switch</a></li>
-      <li><a href="#combos">Combos Nintendo Switch</a></li>
-      <li><a href="#gift">Gift Cards</a></li>
-      <li><a href="#ofertas">Ofertas</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </aside>
-
-  <!-- SLIDER -->
-  <section class="slider">
-    <div class="slides">
-      <div class="slide"><img src="img/slider1.png" alt="Oferta 1"></div>
-      <div class="slide"><img src="img/slider2.png" alt="Oferta 2"></div>
-      <div class="slide"><img src="img/slider3.png" alt="Oferta 3"></div>
-    </div>
-    <button class="prev">❮</button>
-    <button class="next">❯</button>
-  </section>
-
-  <!-- PRODUCTOS PLAYSTATION DINÁMICOS -->
-  <section id="playstation">
-    <h2>PlayStation</h2>
-    <div id="playstation-products" class="products">
-      <!-- Los productos PlayStation se cargarán aquí vía JS -->
-    </div>
-  </section>
-
-  <!-- PRODUCTOS ESTÁTICOS DE EJEMPLO -->
   <main>
-    <h2>Productos Destacados</h2>
-    <div class="products" id="static-products">
+    <section class="products" id="products">
       <div class="product-card">
-        <img src="img/prod1.jpg" alt="Producto 1">
-        <h4>Juego 1</h4>
-        <p>$20</p>
+        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1r34.jpg" alt="The Last of Us Part II">
+        <h4>The Last of Us Part II</h4>
+        <p>PS4</p>
         <button>Añadir al carrito</button>
       </div>
       <div class="product-card">
-        <img src="img/prod2.jpg" alt="Producto 2">
-        <h4>Juego 2</h4>
-        <p>$35</p>
+        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co4wul.jpg" alt="Demon's Souls">
+        <h4>Demon's Souls</h4>
+        <p>PS5</p>
         <button>Añadir al carrito</button>
       </div>
-    </div>
+      <div class="product-card">
+        <img src="https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg" alt="God of War">
+        <h4>God of War</h4>
+        <p>PS4</p>
+        <button>Añadir al carrito</button>
+      </div>
+    </section>
   </main>
 
-  <!-- CONTACTO -->
-  <section id="contacto">
-    <h2>Contacto</h2>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <h3>WhatsApp</h3>
-        <a href="https://wa.me/message/OOINODZGRVXLI1?src=qr" target="_blank">Escríbenos 💬</a>
-      </div>
-      <div class="contact-card">
-        <h3>Instagram</h3>
-        <a href="https://instagram.com/unitygamestore_" target="_blank">Síguenos 📸</a>
-      </div>
-      <div class="contact-card">
-        <h3>Email</h3>
-        <a href="mailto:unitygamestore9@gmail.com">Envíanos un correo ✉️</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
   <footer>
-    <p>UnityGameStore © 2025 - Todos los derechos reservados</p>
+    &copy; 2025 Rototoy. Todos los derechos reservados.
   </footer>
 
-  <!-- POPUP DEL CARRITO -->
-  <div class="cart-popup" id="cart-popup" style="display:none;">
-    <h3>Tu Carrito</h3>
-    <ul id="cart-items"></ul>
-    <button id="checkout">Finalizar Compra</button>
-  </div>
-
-  <script src="script.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
