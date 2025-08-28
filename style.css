@@ -1,192 +1,247 @@
 /* ==============================
-   ESTILOS GENERALES
+   IMPORTAR FUENTES
 ================================= */
-body {
-  font-family: 'Orbitron', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Rajdhani:wght@400;600&display=swap');
+
+/* ==============================
+   RESET Y FUENTES
+================================= */
+* {
   margin: 0;
-  background: #ffffff;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: linear-gradient(180deg, #f8faff 0%, #eef3ff 100%);
   color: #003366;
+  line-height: 1.6;
+  font-family: 'Rajdhani', sans-serif;
+}
+h1, h2, h3, h4, .sidebar a {
+  font-family: 'Audiowide', sans-serif;
 }
 
 /* ==============================
    HEADER
 ================================= */
-header {
-  position: fixed;
-  top: 0; left: 0; right: 0;
+#main-header {
+  background: #003366;
+  color: #FFD700;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: rgba(255,255,255,0.9);
-  padding: 10px 20px;
+  padding: 10px 30px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
-  border-bottom: 3px solid #FFD700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  height: 70px;
 }
 
+/* Logo + nombre */
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .logo {
-  width: 70px;
-  background: #fff;
+  width: 60px;
   border-radius: 50%;
+  background: white;
   padding: 5px;
 }
+.store-name {
+  font-family: 'Audiowide', sans-serif;
+  font-size: 22px;
+  color: #FFD700;
+}
 
+/* Barra de búsqueda */
+.search-bar {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  max-width: 400px;
+}
+.search-bar input {
+  width: 100%;
+  padding: 8px 12px;
+  border-radius: 20px 0 0 20px;
+  border: none;
+  outline: none;
+  font-family: 'Rajdhani', sans-serif;
+}
+.search-bar button {
+  background: #FFD700;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+.search-bar button:hover {
+  background: #fff;
+  color: #003366;
+}
+
+/* Carrito + redes */
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
 .cart-container {
-  font-size: 20px;
-  font-weight: bold;
+  font-size: 16px;
   cursor: pointer;
   background: #FFD700;
-  padding: 5px 10px;
-  border-radius: 10px;
   color: #003366;
+  padding: 6px 12px;
+  border-radius: 25px;
+  font-weight: bold;
   transition: 0.3s;
 }
 .cart-container:hover {
-  background: #003366;
-  color: #FFD700;
+  background: white;
+  color: #003366;
+}
+.social-icons a {
+  font-size: 18px;
+  text-decoration: none;
+  background: white;
+  color: #003366;
+  padding: 6px 10px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+.social-icons a:hover {
+  background: #FFD700;
+  color: #003366;
 }
 
 /* ==============================
    SIDEBAR
 ================================= */
 .sidebar {
-  width: 220px;
+  width: 250px;
+  background: #002244;
+  color: white;
+  height: 100vh;
+  padding: 90px 20px 20px 20px;
   position: fixed;
-  top: 80px;
+  top: 0;
   left: 0;
-  bottom: 0;
-  background: #003366;
-  color: #fff;
-  padding: 20px;
   overflow-y: auto;
+  box-shadow: 3px 0 10px rgba(0,0,0,0.4);
 }
-
-.sidebar ul { list-style: none; padding: 0; }
-.sidebar li { margin-bottom: 10px; cursor: pointer; }
-
+.sidebar ul {
+  list-style: none;
+}
+.sidebar li {
+  margin-bottom: 15px;
+}
 .sidebar a {
-  color: #FFD700;
   text-decoration: none;
-  font-weight: bold;
-}
-
-.category > .submenu {
-  display: none;
-  margin-left: 15px;
-}
-.category:hover > .submenu {
   display: block;
+  padding: 10px 15px;
+  border-radius: 30px;
+  text-align: center;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+.sidebar a:hover {
+  background: white;
+  transform: scale(1.05);
 }
 
-/* Globos para categorías */
-.sidebar li a {
-  display: inline-block;
-  background: #FFD700;
-  color: #003366;
-  padding: 5px 10px;
-  border-radius: 20px;
-  transition: 0.3s;
-}
-.sidebar li a:hover {
-  background: #fff;
-  color: #003366;
-}
+/* Colores categorías */
+.sidebar a[href*="xbox"] { color: #107C10; border: 2px solid #107C10; }
+.sidebar a[href*="playstation"] { color: #003087; border: 2px solid #003087; }
+.sidebar a[href*="nintendo"] { color: #E60012; border: 2px solid #E60012; }
+.sidebar a[href*="combos"] { color: #FF4500; border: 2px solid #FF4500; }
+.sidebar a[href*="gift"] { color: #FFD700; border: 2px solid #FFD700; }
+.sidebar a[href*="ofertas"] { color: #9400D3; border: 2px solid #9400D3; }
+.sidebar a[href*="contacto"] { color: #FF8C00; border: 2px solid #FF8C00; }
 
 /* ==============================
    SLIDER
 ================================= */
 .slider {
-  margin-left: 220px;
-  margin-top: 80px;
+  margin-left: 270px;
+  margin-top: 90px;
   position: relative;
   overflow: hidden;
-  height: 300px;
+  width: calc(100% - 270px);
+  height: 400px;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
-
-.slides {
-  display: flex;
-  transition: transform 0.5s ease;
-}
-.slide {
-  min-width: 100%;
-}
+.slides { display: flex; transition: transform 0.5s ease-in-out; }
+.slide { min-width: 100%; }
 .slide img {
   width: 100%;
-  height: 300px;
+  height: 400px;
   object-fit: cover;
+  border-radius: 15px;
 }
-
 .prev, .next {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 50%; transform: translateY(-50%);
   background: rgba(0,0,0,0.5);
-  color: #fff;
   border: none;
-  font-size: 24px;
-  padding: 10px;
+  color: white;
+  font-size: 30px;
   cursor: pointer;
+  padding: 10px;
   border-radius: 50%;
+  transition: 0.3s;
 }
-.prev { left: 10px; }
-.next { right: 10px; }
+.prev:hover, .next:hover { background: #FFD700; color: #003366; }
+.prev { left: 15px; }
+.next { right: 15px; }
 
 /* ==============================
-   MAIN CONTENT
+   PRODUCTOS
 ================================= */
-main {
-  margin-left: 240px;
-  padding: 20px;
-  margin-top: 20px;
-}
-
-h2 {
-  color: #003366;
-  border-bottom: 2px solid #FFD700;
-  padding-bottom: 5px;
-  margin-bottom: 15px;
-}
-
+main { margin-left: 270px; padding: 20px; }
 .products {
   display: flex;
-  flex-wrap: wrap;
   gap: 20px;
+  flex-wrap: wrap;
 }
-
 .product-card {
-  background: #fff;
-  border-radius: 12px;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   padding: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  width: 200px;
-  transition: transform 0.3s, box-shadow 0.3s;
   text-align: center;
+  width: 220px;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 .product-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
-
 .product-card img {
   width: 100%;
   border-radius: 10px;
-  margin-bottom: 10px;
 }
-
-.price {
-  color: #FFD700;
-  font-weight: bold;
-  margin: 5px 0;
+.product-card h4 {
+  margin: 10px 0;
+  font-family: 'Audiowide', sans-serif;
 }
-
 .product-card button {
+  margin-top: 10px;
   background: #FFD700;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 15px;
   border-radius: 8px;
-  font-weight: bold;
   cursor: pointer;
-  color: #003366;
+  font-weight: bold;
   transition: 0.3s;
+  font-family: 'Rajdhani', sans-serif;
 }
 .product-card button:hover {
   background: #003366;
@@ -196,49 +251,97 @@ h2 {
 /* ==============================
    CONTACTO
 ================================= */
-.contact-grid {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
+.contact-grid { display: flex; gap: 20px; flex-wrap: wrap; }
 .contact-card {
-  background: #fff;
-  border-radius: 15px;
-  padding: 20px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  padding: 15px;
   flex: 1;
   text-align: center;
-  transition: transform 0.3s, box-shadow 0.3s;
+  transition: transform 0.3s;
 }
-.contact-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-}
-
+.contact-card:hover { transform: scale(1.05); }
 .contact-card a {
-  display: inline-block;
+  display: block;
   margin-top: 10px;
-  padding: 10px 15px;
   background: #FFD700;
-  color: #003366;
-  border-radius: 10px;
+  padding: 8px;
+  border-radius: 6px;
   text-decoration: none;
+  color: #003366;
   font-weight: bold;
   transition: 0.3s;
 }
-.contact-card a:hover {
-  background: #003366;
-  color: #FFD700;
-}
+.contact-card a:hover { background: #003366; color: #FFD700; }
 
 /* ==============================
    FOOTER
 ================================= */
 footer {
   background: #003366;
-  color: #FFD700;
+  color: white;
   text-align: center;
-  padding: 10px;
+  padding: 15px;
   margin-top: 20px;
+  border-top: 3px solid #FFD700;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* ==============================
+   CARRITO POPUP
+================================= */
+.cart-popup {
+  position: fixed;
+  top: 90px;
+  right: 20px;
+  width: 320px;
+  background: #fff;
+  border: 2px solid #FFD700;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  padding: 15px;
+  display: none;
+  z-index: 2000;
+}
+.cart-popup h3 { color: #003366; font-family: 'Audiowide', sans-serif; }
+.cart-popup ul {
+  list-style: none;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  font-family: 'Rajdhani', sans-serif;
+}
+.cart-popup li {
+  padding: 5px 0;
+  border-bottom: 1px solid #eee;
+}
+.cart-popup button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: #FFD700;
+  color: #003366;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.cart-popup button:hover { background: #003366; color: #FFD700; }
+
+/* ==============================
+   RESPONSIVE
+================================= */
+@media (max-width: 768px) {
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .slider, main { margin-left: 0; width: 100%; }
+  .products { justify-content: center; }
 }

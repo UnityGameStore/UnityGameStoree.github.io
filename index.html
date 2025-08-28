@@ -3,179 +3,108 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Unity Game Store</title>
+  <title>UnityGameStore</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
   <!-- HEADER -->
   <header id="main-header">
-    <div class="logo-container">
-      <!-- Reemplaza este logo en /img/looogo.png -->
+    <div class="logo-section">
+      <!-- Aquí va tu logo -->
       <img src="img/looogo.png" alt="Logo" class="logo">
+      <h1 class="store-name">UnityGameStore</h1>
     </div>
-    <!-- Carrito -->
-    <div class="cart-container" id="cart-btn">
-      🛒 <span id="cart-count">0</span>
+
+    <!-- Barra de búsqueda -->
+    <div class="search-bar">
+      <input type="text" placeholder="Buscar juegos, gift cards, combos...">
+      <button>🔍</button>
+    </div>
+
+    <!-- Carrito + Redes -->
+    <div class="header-right">
+      <div class="cart-container" id="cart-btn">🛒 Carrito</div>
+      <div class="social-icons">
+        <a href="https://wa.me/message/OOINODZGRVXLI1?src=qr" target="_blank">💬</a>
+        <a href="https://instagram.com/unitygamestore_" target="_blank">📸</a>
+      </div>
     </div>
   </header>
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <ul>
-      <li class="category">Ofertas
-        <ul class="submenu">
-          <li><a href="#ofertas-playstation">PlayStation</a></li>
-          <li><a href="#ofertas-xbox">Xbox</a></li>
-        </ul>
-      </li>
-      <li><a href="#playstation">PlayStation </a></li>
-      <li><a href="#xbox">Xbox </a></li>
-      <li><a href="#tarjetas">Tarjetas</a></li>
-      <li><a href="#gift-cards">Gift Cards</a></li>
-      <li><a href="#combos-switch">Combos Nintendo Switch</a></li>
-      <li class="category">Membresías
-        <ul class="submenu">
-          <li><a href="#ps-plus">PlayStation Plus</a></li>
-          <li><a href="#xbox-gamepass">Xbox Game Pass</a></li>
-        </ul>
-      </li>
+      <li><a href="#xbox">Xbox</a></li>
+      <li><a href="#playstation">PlayStation</a></li>
+      <li><a href="#nintendo">Nintendo Switch</a></li>
+      <li><a href="#combos">Combos Nintendo Switch</a></li>
+      <li><a href="#gift">Gift Cards</a></li>
+      <li><a href="#ofertas">Ofertas</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </aside>
 
   <!-- SLIDER -->
   <section class="slider">
-    <!-- Reemplaza imágenes en /img/slider1.png, slider2.png, slider3.png -->
     <div class="slides">
-      <div class="slide"><img src="img/slider1.png" alt="Promo 1"></div>
-      <div class="slide"><img src="img/slider2.png" alt="Promo 2"></div>
-      <div class="slide"><img src="img/slider3.png" alt="Promo 3"></div>
+      <div class="slide"><img src="img/slider1.png" alt="Oferta 1"></div>
+      <div class="slide"><img src="img/slider2.png" alt="Oferta 2"></div>
+      <div class="slide"><img src="img/slider3.png" alt="Oferta 3"></div>
     </div>
     <button class="prev">❮</button>
     <button class="next">❯</button>
   </section>
 
-  <!-- CONTENIDO -->
+  <!-- PRODUCTOS -->
   <main>
-    <!-- Ofertas -->
-    <section id="ofertas">
-      <h2>Ofertas</h2>
-      <div id="ofertas-playstation">
-        <h3>🎮 Ofertas PlayStation</h3>
-        <div class="products">
-          <div class="product-card">
-            <!-- Reemplaza en /img/oferta-ps1.png -->
-            <img src="img/oferta-ps1.png" alt="Oferta PS">
-            <h4>Juego PSN Oferta</h4>
-            <p class="price">$19.99</p>
-            <button onclick="addToCart('Juego PSN Oferta', 19.99)">Añadir</button>
-          </div>
-        </div>
+    <h2>Productos Destacados</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="img/prod1.jpg" alt="Producto 1">
+        <h4>Juego 1</h4>
+        <p>$20</p>
+        <button>Añadir al carrito</button>
       </div>
-      <div id="ofertas-xbox">
-        <h3>🎮 Ofertas Xbox</h3>
-        <div class="products">
-          <div class="product-card">
-            <!-- Reemplaza en /img/oferta-xbox1.png -->
-            <img src="img/oferta-xbox1.png" alt="Oferta Xbox">
-            <h4>Juego Xbox Oferta</h4>
-            <p class="price">$14.99</p>
-            <button onclick="addToCart('Juego Xbox Oferta', 14.99)">Añadir</button>
-          </div>
-        </div>
+      <div class="product-card">
+        <img src="img/prod2.jpg" alt="Producto 2">
+        <h4>Juego 2</h4>
+        <p>$35</p>
+        <button>Añadir al carrito</button>
       </div>
-    </section>
-
-    <!-- Gift Cards -->
-    <section id="gift-cards">
-      <h2>Gift Cards</h2>
-      <div class="products">
-        <div class="product-card">
-          <!-- Reemplaza en /img/gift-psn.png -->
-          <img src="img/gift-psn.png" alt="Gift PSN">
-          <h4>PlayStation Gift Card</h4>
-          <select onchange="updateGiftPrice(this)">
-            <option value="10-10">10 USD - $10</option>
-            <option value="20-20">20 USD - $20</option>
-            <option value="50-50">50 USD - $50</option>
-          </select>
-          <button onclick="addGiftCard(this)">Añadir</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Combos Nintendo Switch -->
-    <section id="combos-switch">
-      <h2>Combos Nintendo Switch</h2>
-      <div class="products">
-        <div class="product-card">
-          <!-- Reemplaza en /img/combo1.png -->
-          <img src="img/combo1.png" alt="Combo Switch 1">
-          <h4>Switch OLED + Mario Kart</h4>
-          <p class="price">$449.99</p>
-          <button onclick="addToCart('Switch OLED + Mario Kart', 449.99)">Añadir</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- Membresías -->
-    <section id="membresias">
-      <h2>Membresías</h2>
-      <div id="ps-plus">
-        <h3>PlayStation Plus</h3>
-        <div class="products">
-          <div class="product-card">
-            <!-- Reemplaza en /img/psplus1.png -->
-            <img src="img/psplus1.png" alt="PS Plus">
-            <h4>PS Plus 1 Mes</h4>
-            <p class="price">$9.99</p>
-            <button onclick="addToCart('PS Plus 1 Mes', 9.99)">Añadir</button>
-          </div>
-        </div>
-      </div>
-      <div id="xbox-gamepass">
-        <h3>Xbox Game Pass</h3>
-        <div class="products">
-          <div class="product-card">
-            <!-- Reemplaza en /img/gamepass1.png -->
-            <img src="img/gamepass1.png" alt="Game Pass">
-            <h4>Game Pass 1 Mes</h4>
-            <p class="price">$9.99</p>
-            <button onclick="addToCart('Game Pass 1 Mes', 9.99)">Añadir</button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contacto -->
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <div class="contact-grid">
-        <div class="contact-card">
-          <h4>📲 WhatsApp</h4>
-          <p>Escríbenos directamente</p>
-          <a href="https://wa.me/584122754616" target="_blank">Ir a WhatsApp</a>
-        </div>
-        <div class="contact-card">
-          <h4>📧 Correo</h4>
-          <p>unitygamestore9@gmail.com</p>
-          <a href="mailto:unitygamestore9@gmail.com">Enviar Correo</a>
-        </div>
-        <div class="contact-card">
-          <h4>📷 Instagram</h4>
-          <p>@unitygamestore_</p>
-          <a href="https://instagram.com/unitygamestore_" target="_blank">Ir a Instagram</a>
-        </div>
-      </div>
-    </section>
+    </div>
   </main>
+
+  <!-- CONTACTO -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>WhatsApp</h3>
+        <a href="https://wa.me/message/OOINODZGRVXLI1?src=qr" target="_blank">Escríbenos 💬</a>
+      </div>
+      <div class="contact-card">
+        <h3>Instagram</h3>
+        <a href="https://instagram.com/unitygamestore_" target="_blank">Síguenos 📸</a>
+      </div>
+      <div class="contact-card">
+        <h3>Email</h3>
+        <a href="mailto:unitygamestore9@gmail.com">Envíanos un correo ✉️</a>
+      </div>
+    </div>
+  </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>© 2025 UnityGameStore - Todos los derechos reservados</p>
+    <p>UnityGameStore © 2025 - Todos los derechos reservados</p>
   </footer>
+
+  <!-- POPUP DEL CARRITO -->
+  <div class="cart-popup" id="cart-popup">
+    <h3>Tu Carrito</h3>
+    <ul id="cart-items"></ul>
+    <button id="checkout">Finalizar Compra</button>
+  </div>
 
   <script src="script.js"></script>
 </body>
