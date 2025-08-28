@@ -43,7 +43,7 @@
       <li><a href="#nintendo">Nintendo Switch</a></li>
       <li><a href="#combos">Combos Nintendo Switch</a></li>
       <li><a href="#gift">Gift Cards</a></li>
-      <li><a href="#ofertas">Ofertas</a></li>
+      <li><a href="#playstation-ofertas">Ofertas PlayStation</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </aside>
@@ -56,7 +56,7 @@
       <li><a href="#nintendo">Nintendo Switch</a></li>
       <li><a href="#combos">Combos Nintendo Switch</a></li>
       <li><a href="#gift">Gift Cards</a></li>
-      <li><a href="#ofertas">Ofertas</a></li>
+      <li><a href="#playstation-ofertas">Ofertas PlayStation</a></li>
       <li><a href="#contacto">Contacto</a></li>
     </ul>
   </nav>
@@ -93,11 +93,18 @@
       </div>
     </section>
 
-    <!-- SECCIÓN PLAYSTATION (SOLO JSON) -->
+    <!-- SECCIÓN PLAYSTATION -->
     <section id="playstation-section" class="category-section" style="display:none;">
       <h2>PlayStation</h2>
+      <div class="ps-tabs">
+        <button id="btn-ps-todos" class="ps-tab active">Todos los juegos</button>
+        <button id="btn-ps-ofertas" class="ps-tab">Ofertas</button>
+      </div>
       <div id="playstation-products" class="products">
-        <!-- Aquí se cargarán los productos PlayStation desde el JSON -->
+        <!-- Aquí se cargarán los productos de csvjson.json -->
+      </div>
+      <div id="ofertas-products" class="products" style="display:none;">
+        <!-- Aquí se cargarán los productos de ofertas.json -->
       </div>
     </section>
 
@@ -155,14 +162,6 @@
       </div>
     </section>
 
-    <!-- SECCIÓN OFERTAS -->
-    <section id="ofertas-section" class="category-section" style="display:none;">
-      <h2>Ofertas</h2>
-      <div id="ofertas-products" class="products">
-        <!-- Aquí se cargarán los productos de ofertas desde ofertas.json -->
-      </div>
-    </section>
-
     <!-- SECCIÓN CONTACTO -->
     <section id="contacto-section" class="category-section" style="display:none;">
       <h2>Contacto</h2>
@@ -212,7 +211,12 @@
       link.addEventListener('click', function(e) {
         e.preventDefault();
         const hash = this.getAttribute('href').replace('#', '');
-        mostrarSeccion(hash + '-section');
+        if (hash === "playstation-ofertas") {
+          mostrarSeccion("playstation-section");
+          document.getElementById("btn-ps-ofertas").click();
+        } else {
+          mostrarSeccion(hash + '-section');
+        }
       });
     });
 
@@ -221,7 +225,12 @@
       link.addEventListener('click', function(e) {
         e.preventDefault();
         const hash = this.getAttribute('href').replace('#', '');
-        mostrarSeccion(hash + '-section');
+        if (hash === "playstation-ofertas") {
+          mostrarSeccion("playstation-section");
+          document.getElementById("btn-ps-ofertas").click();
+        } else {
+          mostrarSeccion(hash + '-section');
+        }
         document.getElementById('mobile-menu').classList.remove('active');
       });
     });
