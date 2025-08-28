@@ -178,7 +178,7 @@ function renderPlaystationProductos(productos) {
 // ====================
 // PRODUCTOS OFERTAS DESDE ofertas.json
 // ====================
-function cargarOfertas() {
+function cargarOFertas() {
   fetch('ofertas.json')
     .then(res => res.json())
     .then(productos => {
@@ -194,7 +194,7 @@ function cargarOfertas() {
 }
 
 function renderOfertasProductos(productos) {
-  const container = document.getElementById('ofertas-products');
+  const container = document.getElementById('playstation-products');
   if (!container) return;
   container.innerHTML = '';
   productos.forEach((prod, idx) => {
@@ -205,7 +205,7 @@ function renderOfertasProductos(productos) {
     const tieneSecundario = prod.secundario !== "" && prod.secundario !== undefined;
     if (!tienePS4 && !tienePS5 && !tieneSecundario) return;
 
-    const prodId = `oferta-prod-${idx}`;
+    const prodId = `ps-prod-${idx}`;
     let plataformaOptions = '';
     if (tienePS4) plataformaOptions += `<option value="ps4">PS4</option>`;
     if (tienePS5) plataformaOptions += `<option value="ps5">PS5</option>`;
@@ -234,14 +234,14 @@ function renderOfertasProductos(productos) {
           </select>
         </label>
         <p class="price" id="price-${prodId}">$${precioInicial}</p>
-        <button class="btn-carrito-oferta" data-idx="${idx}">Añadir al carrito</button>
+        <button class="btn-carrito-ps" data-idx="${idx}">Añadir al carrito</button>
       </div>
     `;
   });
 
   productos.forEach((prod, idx) => {
     if (!prod.nombre) return;
-    const prodId = `oferta-prod-${idx}`;
+    const prodId = `ps-prod-${idx}`;
     const selectPlataforma = document.querySelector(`.select-plataforma[data-prod="${prodId}"]`);
     const selectTipo = document.querySelector(`.select-tipo[data-prod="${prodId}"]`);
     const priceTag = document.getElementById(`price-${prodId}`);
@@ -270,7 +270,7 @@ function renderOfertasProductos(productos) {
     if (selectPlataforma) selectPlataforma.addEventListener('change', actualizarPrecio);
     selectTipo.addEventListener('change', actualizarPrecio);
 
-    const btnCarrito = document.querySelector(`.btn-carrito-oferta[data-idx="${idx}"]`);
+    const btnCarrito = document.querySelector(`.btn-carrito-ps[data-idx="${idx}"]`);
     if (btnCarrito) {
       btnCarrito.addEventListener('click', () => {
         const plat = selectPlataforma ? selectPlataforma.value : '';
@@ -302,7 +302,6 @@ function renderOfertasProductos(productos) {
     }
   });
 }
-
 // Ejecutar al cargar la página
 if (document.getElementById('playstation-products')) {
   cargarPlayStation();
@@ -362,3 +361,4 @@ function filtrarProductos() {
 }
 searchInput.addEventListener("input", filtrarProductos);
 searchBtn.addEventListener("click", filtrarProductos);
+
