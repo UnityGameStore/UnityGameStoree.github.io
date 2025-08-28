@@ -24,6 +24,34 @@ function actualizarCarrito() {
 }
 
 // ====================
+// MENÚ HAMBURGUESA PARA MÓVIL
+// ====================
+const hamburgerBtn = document.getElementById('hamburger-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+// Abrir/cerrar el menú
+if (hamburgerBtn && mobileMenu) {
+  hamburgerBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Cerrar al hacer click en un enlace
+  mobileMenu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
+
+  // Opcional: cerrar si haces click fuera del menú
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('active') && !mobileMenu.contains(e.target) && e.target !== hamburgerBtn) {
+      mobileMenu.classList.remove('active');
+    }
+  });
+}
+
+
+// ====================
 // BOTÓN DE COMPRA
 // ====================
 const checkoutBtn = document.getElementById("checkout");
@@ -221,3 +249,4 @@ function renderPlaystationProductos(productos) {
 if (document.getElementById('playstation-products')) {
   cargarPlayStation();
 }
+
