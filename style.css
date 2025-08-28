@@ -471,6 +471,19 @@ footer {
   }
 }
 
+.cloud-offers {
+  background: #fffbe6;
+  border: 2px dashed #FFD700;
+  border-radius: 25px;
+  margin-bottom: 18px;
+  padding: 18px 18px;
+  text-align: center;
+  font-size: 1.14em;
+  color: #003366;
+  box-shadow: 0 4px 18px #ffd70033;
+}
+.cloud-offers b { color: #E60012; }
+
 /* ==============================
    RESPONSIVE
 ================================= */
@@ -528,4 +541,5 @@ footer {
     padding: 8px !important;
   }
 }
+
 
