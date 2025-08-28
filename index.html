@@ -70,35 +70,122 @@
     <button class="next">❯</button>
   </section>
 
-  <!-- PRODUCTOS PLAYSTATION DINÁMICOS -->
-  <section id="playstation">
-    <h2>PlayStation</h2>
-    <div id="playstation-products" class="products">
-      <!-- Los productos PlayStation se cargarán aquí vía JS -->
+  <!-- SECCIÓN XBOX -->
+  <section id="xbox-section" class="category-section" style="display:none;">
+    <h2>Xbox</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="img/xbox1.jpg" alt="Xbox Juego 1">
+        <h4>Halo Infinite</h4>
+        <p>$40</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <div class="product-card">
+        <img src="img/xbox2.jpg" alt="Xbox Juego 2">
+        <h4>Forza Horizon 5</h4>
+        <p>$50</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <!-- Más productos Xbox aquí -->
     </div>
   </section>
 
-  <!-- PRODUCTOS ESTÁTICOS DE EJEMPLO -->
-  <main>
-    <h2>Productos Destacados</h2>
+  <!-- SECCIÓN PLAYSTATION -->
+  <section id="playstation-section" class="category-section" style="display:none;">
+    <h2>PlayStation</h2>
     <div class="products">
       <div class="product-card">
-        <img src="img/prod1.jpg" alt="Producto 1">
-        <h4>Juego 1</h4>
+        <img src="img/ps1.jpg" alt="PlayStation Juego 1">
+        <h4>God of War Ragnarok</h4>
+        <p>$60</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <div class="product-card">
+        <img src="img/ps2.jpg" alt="PlayStation Juego 2">
+        <h4>Spider-Man 2</h4>
+        <p>$55</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <!-- Más productos PlayStation aquí -->
+    </div>
+  </section>
+
+  <!-- SECCIÓN NINTENDO SWITCH -->
+  <section id="nintendo-section" class="category-section" style="display:none;">
+    <h2>Nintendo Switch</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="img/nintendo1.jpg" alt="Nintendo Juego 1">
+        <h4>The Legend of Zelda: Breath of the Wild</h4>
+        <p>$45</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <!-- Más productos Nintendo aquí -->
+    </div>
+  </section>
+
+  <!-- SECCIÓN COMBOS NINTENDO -->
+  <section id="combos-section" class="category-section" style="display:none;">
+    <h2>Combos Nintendo Switch</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="img/combo1.jpg" alt="Combo 1">
+        <h4>Combo Mario + Zelda</h4>
+        <p>$75</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <div class="product-card">
+        <img src="img/combo2.jpg" alt="Combo 2">
+        <h4>Combo Animal Crossing + Pokémon</h4>
+        <p>$70</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <!-- Más combos Nintendo aquí -->
+    </div>
+  </section>
+
+  <!-- SECCIÓN GIFT CARDS -->
+  <section id="gift-section" class="category-section" style="display:none;">
+    <h2>Gift Cards</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="img/gift1.jpg" alt="Gift Card 1">
+        <h4>Gift Card Xbox $10</h4>
+        <p>$10</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <div class="product-card">
+        <img src="img/gift2.jpg" alt="Gift Card 2">
+        <h4>Gift Card PlayStation $20</h4>
+        <p>$20</p>
+        <button>Añadir al carrito</button>
+      </div>
+      <!-- Más gift cards aquí -->
+    </div>
+  </section>
+
+  <!-- SECCIÓN OFERTAS -->
+  <section id="ofertas-section" class="category-section" style="display:none;">
+    <h2>Ofertas</h2>
+    <div class="products">
+      <div class="product-card">
+        <img src="img/oferta1.jpg" alt="Oferta 1">
+        <h4>Oferta Especial 1</h4>
         <p>$20</p>
         <button>Añadir al carrito</button>
       </div>
       <div class="product-card">
-        <img src="img/prod2.jpg" alt="Producto 2">
-        <h4>Juego 2</h4>
-        <p>$35</p>
+        <img src="img/oferta2.jpg" alt="Oferta 2">
+        <h4>Oferta Especial 2</h4>
+        <p>$15</p>
         <button>Añadir al carrito</button>
       </div>
+      <!-- Más ofertas aquí -->
     </div>
-  </main>
+  </section>
 
-  <!-- CONTACTO -->
-  <section id="contacto">
+  <!-- SECCIÓN CONTACTO -->
+  <section id="contacto-section" class="category-section" style="display:none;">
     <h2>Contacto</h2>
     <div class="contact-grid">
       <div class="contact-card">
@@ -129,5 +216,38 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    // ====================
+    // NAVEGACIÓN DE CATEGORÍAS (SIDEBAR Y MENÚ HAMBURGUESA)
+    // ====================
+    function mostrarSeccion(id) {
+      document.querySelectorAll('.category-section').forEach(sec => sec.style.display = 'none');
+      const target = document.getElementById(id);
+      if (target) target.style.display = '';
+      window.scrollTo({ top: 80, behavior: 'smooth' });
+    }
+
+    // Sidebar
+    document.querySelectorAll('.sidebar a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const hash = this.getAttribute('href').replace('#', '');
+        mostrarSeccion(hash + '-section');
+      });
+    });
+
+    // Menú hamburguesa móvil
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const hash = this.getAttribute('href').replace('#', '');
+        mostrarSeccion(hash + '-section');
+        document.getElementById('mobile-menu').classList.remove('active');
+      });
+    });
+
+    // MOSTRAR INICIO POR DEFECTO (puedes cambiar por la sección que quieras)
+    mostrarSeccion('xbox-section');
+  </script>
 </body>
 </html>
