@@ -89,23 +89,16 @@ nextBtn.addEventListener("click", () => showSlide(1));
 setInterval(() => { showSlide(1); }, 5000);
 
 // ====================
-// BARRA DE BÚSQUEDA GLOBAL (ESTÁTICOS + DINÁMICOS)
+// BARRA DE BÚSQUEDA GLOBAL (TODOS LOS PRODUCTOS DE LA PÁGINA)
 // ====================
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 
 function filtrarProductos() {
   const query = searchInput.value.trim().toLowerCase();
-
-  // Filtrar productos estáticos
-  document.querySelectorAll("#static-products .product-card").forEach(card => {
-    const nombre = card.querySelector("h4").innerText.toLowerCase();
-    card.style.display = nombre.includes(query) ? "" : "none";
-  });
-
-  // Filtrar productos PlayStation dinámicos
-  document.querySelectorAll("#playstation-products .product-card").forEach(card => {
-    const nombre = card.querySelector("h4").innerText.toLowerCase();
+  // Selecciona todos los productos visibles en la página
+  document.querySelectorAll(".product-card").forEach(card => {
+    const nombre = card.querySelector("h4")?.innerText.toLowerCase() || "";
     card.style.display = nombre.includes(query) ? "" : "none";
   });
 }
@@ -249,4 +242,5 @@ function renderPlaystationProductos(productos) {
 if (document.getElementById('playstation-products')) {
   cargarPlayStation();
 }
+
 
