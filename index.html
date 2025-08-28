@@ -11,18 +11,13 @@
   <!-- HEADER -->
   <header id="main-header">
     <div class="logo-section">
-      <!-- Aquí va tu logo -->
       <img src="img/looogo.png" alt="Logo" class="logo">
       <h1 class="store-name">UnityGameStore</h1>
     </div>
-
-    <!-- Barra de búsqueda -->
     <div class="search-bar">
-      <input type="text" placeholder="Buscar juegos, gift cards, combos...">
-      <button>🔍</button>
+      <input type="text" id="search-input" placeholder="Buscar juegos, gift cards, combos...">
+      <button id="search-btn">🔍</button>
     </div>
-
-    <!-- Carrito + Redes -->
     <div class="header-right">
       <div class="cart-container" id="cart-btn">🛒 Carrito</div>
       <div class="social-icons">
@@ -56,7 +51,15 @@
     <button class="next">❯</button>
   </section>
 
-  <!-- PRODUCTOS -->
+  <!-- PRODUCTOS PLAYSTATION DINÁMICOS -->
+  <section id="playstation">
+    <h2>PlayStation</h2>
+    <div id="playstation-products" class="products">
+      <!-- Los productos PlayStation se cargarán aquí vía JS -->
+    </div>
+  </section>
+
+  <!-- PRODUCTOS ESTÁTICOS DE EJEMPLO -->
   <main>
     <h2>Productos Destacados</h2>
     <div class="products">
@@ -100,7 +103,7 @@
   </footer>
 
   <!-- POPUP DEL CARRITO -->
-  <div class="cart-popup" id="cart-popup">
+  <div class="cart-popup" id="cart-popup" style="display:none;">
     <h3>Tu Carrito</h3>
     <ul id="cart-items"></ul>
     <button id="checkout">Finalizar Compra</button>
