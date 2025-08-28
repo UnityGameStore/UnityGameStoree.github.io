@@ -53,7 +53,7 @@ checkoutBtn.addEventListener("click", () => {
   });
 
   // Reemplaza tu número de WhatsApp
-  const url = `https://wa.me/message/OOINODZGRVXLI1?src=qr" target="_blank`;
+  const url = `https://wa.me/04122754616" target="_blank`;
   window.open(url, "_blank");
 });
 
